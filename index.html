@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yajur Veda Upakarma Vidhana</title>
-    <!-- Standard Tailwind CSS Setup -->
     <script src="https://tailwindcss.com"></script>
     <style>
         body { font-family: 'Georgia', 'Cambria', serif; background-color: #fdfcf7; color: #292524; }
@@ -15,90 +14,174 @@
 </head>
 <body class="selection:bg-amber-100 antialiased pb-32">
 
-    <!-- Premium Minimalist Book Header -->
-    <header class="max-w-2xl mx-auto px-6 text-center pt-24 pb-16">
-        <p class="instruction tracking-widest text-amber-800">Sri Vaishnava Sampradaya</p>
-        <h1 class="text-4xl font-serif font-normal text-stone-900 mt-3 tracking-wide">Yajur Veda Upakarma Vidhana</h1>
-        <p class="text-sm italic text-stone-500 mt-2 font-serif">The Annual Renewal of Vedic Study</p>
-        <div class="divider"></div>
-    </header>
+    <!-- Minimal Form Setup Cover Screen -->
+    <div id="setupScreen" class="max-w-md mx-auto px-6 pt-24 pb-16">
+        <div class="text-center mb-8">
+            <p class="instruction tracking-widest text-amber-800">Sri Vaishnava Sampradaya</p>
+            <h1 class="text-3xl font-serif text-stone-900 mt-2">Upakarma Personalization</h1>
+            <p class="text-sm italic text-stone-500 mt-1">Configure your specific parameters to generate your text</p>
+        </div>
 
-    <main class="max-w-xl mx-auto px-6 space-y-16">
-        
-        <!-- Sātvika Tyāgam Anchor Frame -->
-        <section class="border-l border-stone-300 pl-6 my-12">
-            <p class="instruction text-stone-500">Sātvika Tyāgam</p>
-            <p class="text-sm text-stone-600 mt-2 leading-relaxed font-serif italic">
-                "Bhagavānēva svaniyāmya svarūpa sthiti pravritti svashēshatā lēna svīyairatya kalyāṇa guṇagaṇaih... bhagavat-karmatām prapādayati."
-            </p>
-            <p class="text-[11px] uppercase tracking-wider text-stone-400 mt-1 font-sans font-bold">Recite before and after every major step</p>
-        </section>
-
-        <!-- Step 1 -->
-        <section class="space-y-4">
-            <p class="instruction text-amber-800">Step I — Kāmokārshīt Japam</p>
-            <p class="text-sm text-stone-500 leading-relaxed font-serif">Chant 108 times to seek expiation for past lapses in regular Vedic study.</p>
-            <p class="mantra-text text-center py-6 font-medium text-stone-900">
-                "Kāmokārshīt manyurakārshīt namō namah"
-            </p>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Step 2 -->
-        <section class="space-y-4">
-            <p class="instruction text-amber-800">Step II — Brahma Yajna</p>
-            <p class="text-sm text-stone-500 leading-relaxed font-serif">If performing the full traditional sequence, face East and commence the offerings to the cosmic streams. If skipping, pass directly to Step III.</p>
-            <p class="mantra-text leading-relaxed text-justify text-stone-900">
-                "Harih Ōm. Agnimmīḷē purōhitam yajñasya dēvamṛtvijam hotāram ratnad hātamam..."
-            </p>
-        </section>
-
-        <div class="divider"></div>
-        <!-- Step 3 -->
-        <section class="space-y-4">
-            <p class="instruction text-amber-800">Step III — Mahāsankalpam</p>
-            <p class="text-sm text-stone-500 leading-relaxed font-serif">Hold Akshata, fruit, and water in your right palm. Substitute your respective identity parameters in the underlined gaps below as you chant.</p>
-            
-            <p class="mantra-text leading-relaxed text-justify text-stone-900">
-                "Harih Ōm Tatsat... Shvētavarāha kalpē... samvatsarē, Uttarāyanē, Varsha ṛtau, Shrāvaṇa māsē, Shuklapakṣē, Pūrṇimāyām tithau, Shrāvaṇa nakṣatra yuktāyām...
-                <br><br>
-                <u>[Insert Your Pravara & Gotra]</u> gōtrōtpannah <u>[Insert Your Name]</u> sharmā aham...
-                <br><br>
-                ...shrauta smārta vihita nitya karma anuṣṭhāna yōgyatā siddhyartham, nūtana yajñōpavīta dhāraṇam kariṣyē."
-            </p>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Step 4 -->
-        <section class="space-y-4">
-            <p class="instruction text-amber-800">Step IV — Yajnopavīta Dhāraṇam</p>
-            <p class="text-sm text-stone-500 leading-relaxed font-serif">Place the new sacred thread loop over your right shoulder while reading the consecration verse.</p>
-            <p class="mantra-text leading-relaxed text-justify text-stone-900">
-                "Yajñōpavītam paramam pavitram prajāpatēryatsahajam purastāt | Āyuṣyamagriyam pratimuñca shubhram jyōtiṣmatpamañca bālamastu ||"
-            </p>
-            <p class="text-sm text-stone-500 pt-4 font-serif">Discard the old worn thread safely using the exit prayer:</p>
-            <p class="mantra-text text-stone-500 text-xl font-normal">
-                "Upavītam bhinnatantu jīrṇam kaṣmāladūṣitam | Visṛjāmi yashōbāladīrghāyurastu mē ||"
-            </p>
-        </section>
-
-        <div class="divider"></div>
-
-        <!-- Step 5 -->
-        <section class="space-y-4">
-            <p class="instruction text-amber-800">Step V — Kāṇḍa Ṛṣi Tarpaṇam</p>
-            <p class="text-sm text-stone-500 leading-relaxed font-serif">Shift your thread to the necklace position (Nivēti) and offer holy water streams to the great seers of the Vedas.</p>
-            
-            <div class="space-y-4 pt-4 font-serif text-stone-900 text-xl italic pl-2">
-                <p>— "Prājāpatyam kāṇḍarṣim tarpaṇāmi"</p>
-                <p>— "Sōmam kāṇḍarṣim tarpaṇāmi"</p>
-                <p>— "Agnim kāṇḍarṣim tarpaṇāmi"</p>
-                <p>— "Vishvān dēvān kāṇḍarṣīn tarpaṇāmi"</p>
+        <div class="space-y-5 bg-white p-6 rounded-xl border border-stone-200 shadow-xs font-sans">
+            <div>
+                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">1. Your Gotra</label>
+                <select id="gotraSelect" class="w-full border border-stone-200 rounded-lg p-3 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
+                    <option value="srivatsa">Srivatsa (श्रीवत्स)</option>
+                    <option value="bharadvaja">Bharadvaja (भारद्वाज)</option>
+                    <option value="kashyapa">Kashyapa (कश्यप)</option>
+                    <option value="vadhula">Vadhula (वाधूल)</option>
+                    <option value="harita">Harita (हारीत)</option>
+                    <option value="shatamarshana">Shatamarshana (शठमर्षण)</option>
+                    <option value="kaushika">Kaushika (कौश्यक)</option>
+                    <option value="shandilya">Shandilya (शाण्डिल्य)</option>
+                    <option value="naidhruva">Naidhruva (नैध्रुव)</option>
+                    <option value="atreya">Atreya (आत्रेय)</option>
+                    <option value="kaundinya">Kaundinya (कौण्डिन्य)</option>
+                    <option value="gautama">Gautama (गौतम)</option>
+                    <option value="mudgala">Mudgala (मुद्गल)</option>
+                    <option value="garga">Garga (गर्ग)</option>
+                </select>
             </div>
-        </section>
 
-    </main>
+            <div>
+                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">2. Your Name (Sharma)</label>
+                <input id="sharmaInput" type="text" placeholder="e.g. Ranganatha" class="w-full border border-stone-200 rounded-lg p-3 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">3. Path Option</label>
+                <select id="trackSelect" class="w-full border border-stone-200 rounded-lg p-3 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
+                    <option value="full">Include Brahma Yajna (Track A)</option>
+                    <option value="short">Skip Brahma Yajna (Proceed to Tarpanam)</option>
+                </select>
+            </div>
+
+            <button onclick="generateRitual()" class="w-full mt-2 bg-stone-900 text-white py-3 rounded-lg text-sm font-semibold tracking-wide hover:bg-stone-800 transition-colors cursor-pointer">
+                Generate Ritual Text
+            </button>
+        </div>
+    </div>
+
+    <!-- Ritual Layout View (Hidden on Load) -->
+    <div id="ritualView" class="hidden">
+        <header class="max-w-2xl mx-auto px-6 text-center pt-24 pb-16">
+            <p class="instruction tracking-widest text-amber-800">Sri Vaishnava Sampradaya</p>
+            <h1 class="text-4xl font-serif font-normal text-stone-900 mt-3 tracking-wide">Yajur Veda Upakarma Vidhana</h1>
+            <p class="text-sm italic text-stone-500 mt-2 font-serif">Personalized Ritual Companion</p>
+            <div class="divider"></div>
+        </header>
+
+        <main class="max-w-xl mx-auto px-6 space-y-16">
+            
+            <section class="border-l border-stone-300 pl-6 my-12">
+                <p class="instruction text-stone-500">Sātvika Tyāgam</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed font-serif italic">
+                    "Bhagavānēva svaniyāmya svarūpa sthiti pravritti svashēshatā lēna svīyairatya kalyāṇa guṇagaṇaih... bhagavat-karmatām prapādayati."
+                </p>
+            </section>
+
+            <section class="space-y-4">
+                <p class="instruction text-amber-800">Step I — Kāmokārshīt Japam</p>
+                <p class="text-sm text-stone-500 leading-relaxed font-serif">Chant 108 times using a Japa Mala sequence.</p>
+                <p class="mantra-text text-center py-6 font-medium text-stone-900">"Kāmokārshīt manyurakārshīt namō namah"</p>
+            </section>
+
+            <div class="divider"></div>
+            <!-- Dynamic Brahma Yajna Block -->
+            <div id="brahmaYajnaCard">
+                <section class="space-y-4">
+                    <p class="instruction text-amber-800">Step II — Brahma Yajna</p>
+                    <p class="text-sm text-stone-500 leading-relaxed font-serif">Face East and complete the following introductory section:</p>
+                    <p class="mantra-text leading-relaxed text-justify text-stone-900">
+                        "Harih Ōm. Agnimmīḷē purōhitam yajñasya dēvamṛtvijam hotāram ratnad hātamam..."
+                    </p>
+                </section>
+                <div class="divider"></div>
+            </div>
+
+            <!-- Personalized Mahasankalpam Section -->
+            <section class="space-y-4">
+                <p class="instruction text-amber-800">Step III — Mahāsankalpam</p>
+                <p class="text-sm text-stone-500 leading-relaxed font-serif">Hold offering items in your right hand. Your fully computed declaration is written below:</p>
+                <p class="mantra-text leading-relaxed text-justify text-stone-900">
+                    "Harih Ōm Tatsat... Shvētavarāha kalpē... samvatsarē, Uttarāyanē, Varsha ṛtau, Shrāvaṇa māsē, Shuklapakṣē, Pūrṇimāyām tithau, Shrāvaṇa nakṣatra yuktāyām...
+                    <br><br>
+                    <span id="renderedPravara" class="font-bold border-b border-stone-400 pb-0.5"></span> 
+                    <span id="renderedName" class="font-bold border-b border-stone-400 pb-0.5"></span> sharmā aham...
+                    <br><br>
+                    ...shrauta smārta vihita nitya karma anuṣṭhāna yōgyatā siddhyartham, nūtana yajñōpavīta dhāraṇam kariṣyē."
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Step 4 -->
+            <section class="space-y-4">
+                <p class="instruction text-amber-800">Step IV — Yajnopavīta Dhāraṇam</p>
+                <p class="text-sm text-stone-500 leading-relaxed font-serif">Don your new thread loop while chanting the consecration line:</p>
+                <p class="mantra-text leading-relaxed text-justify text-stone-900">
+                    "Yajñōpavītam paramam pavitram prajāpatēryatsahajam purastāt | Āyuṣyamagriyam pratimuñca shubhram jyōtiṣmatpamañca bālamastu ||"
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Step 5 -->
+            <section class="space-y-4">
+                <p class="instruction text-amber-800">Step V — Kāṇḍa Ṛṣi Tarpaṇam</p>
+                <p class="text-sm text-stone-500 leading-relaxed font-serif">Shift thread loop to Nivēti and offer water to the Vedic Seers.</p>
+                <div class="space-y-4 pt-4 font-serif text-stone-900 text-xl italic pl-2">
+                    <p>— "Prājāpatyam kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>— "Sōmam kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>— "Agnim kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>— "Vishvān dēvān kāṇḍarṣīn tarpaṇāmi"</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Layout Generation Logic Engines -->
+    <script>
+        const gotraData = {
+            srivatsa: "Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah",
+            bharadvaja: "Āṅgirasa, Bārhaspatya, Bhāradvāja trayārṣeya prāvarānvita Bhāradvāja gōtrōtpannah",
+            kashyapa: "Kāśyapa, Āvatsāra, Naidhruva trayārṣeya prāvarānvita Kāśyapa gōtrōtpannah",
+            vadhula: "Bhārgava, Vaitahavya, Sāvedasa trayārṣeya prāvarānvita Vādhūla gōtrōtpannah",
+            harita: "Āṅgirasa, Āmbarīṣa, Yuvānāśva trayārṣeya prāvarānvita Hārīta gōtrōtpannah",
+            shatamarshana: "Āṅgirasa, Paurukutsya, Trāsadhasya trayārṣeya prāvarānvita Śaṭhamarṣaṇa gōtrōtpannah",
+            kaushika: "Vaiśvāmitra, Āghamārṣaṇa, Kauśika trayārṣeya prāvarānvita Kauśika gōtrōtpannah",
+            shandilya: "Kāśyapa, Āvatsāra, Śāṇḍilya trayārṣeya prāvarānvita Śāṇḍilya gōtrōtpannah",
+            naidhruva: "Kāśyapa, Āvatsāra, Naidhruva trayārṣeya prāvarānvita Naidhruva Kāśyapa gōtrōtpannah",
+            atreya: "Ātrēya, Ārcanānasa, Śyāvāśva trayārṣeya prāvarānvita Ātrēya gōtrōtpannah",
+            kaundinya: "Vāsiṣṭha, Maitrāvaruṇa, Kauṇḍinya trayārṣeya prāvarānvita Kauṇḍinya gōtrōtpannah",
+            gautama: "Āṅgirasa, Āyāsyā, Gautama trayārṣeya prāvarānvita Gautama gōtrōtpannah",
+            mudgala: "Āṅgirasa, Bhārmyaśva, Maudgalya trayārṣeya prāvarānvita Maudgalya gōtrōtpannah",
+            garga: "Āṅgirasa, Bārhaspatya, Bhāradvāja, Sainya, Gārgya pañcārṣeya prāvarānvita Gārgya gōtrōtpannah"
+        };
+
+        function generateRitual() {
+            const selectedGotra = document.getElementById('gotraSelect').value;
+            let sharmaName = document.getElementById('sharmaInput').value.trim();
+            const trackSelection = document.getElementById('trackSelect').value;
+
+            if (!sharmaName) sharmaName = "[Your Name]";
+
+            // Inject the personalized texts into the Mahasankalpam
+            document.getElementById('renderedPravara').innerText = gotraData[selectedGotra];
+            document.getElementById('renderedName').innerText = sharmaName;
+
+            // Handle showing or dropping Step II based on choice
+            if (trackSelection === 'short') {
+                document.getElementById('brahmaYajnaCard').style.display = 'none';
+            } else {
+                document.getElementById('brahmaYajnaCard').style.display = 'block';
+            }
+
+            // Hide the choice dashboard panel and fade up the clean ritual layout
+            document.getElementById('setupScreen').classList.add('hidden');
+            document.getElementById('ritualView').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
