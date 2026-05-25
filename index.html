@@ -6,16 +6,16 @@
     <title>Yajur Veda Upakarma Vidhana 2026</title>
     <script src="https://tailwindcss.com"></script>
     <style>
-        body { font-family: 'Georgia', 'Cambria', serif; background-color: #fdfcf7; color: #292524; }
+        body { font-family: 'Georgia', 'Cambria', serif; background-color: #fdfcf7 !important; color: #292524; }
         .mantra-text { font-size: 1.3rem; line-height: 1.9; color: #1c1917; font-weight: 500; }
         .instruction { font-family: system-ui, -apple-system, sans-serif; font-size: 0.8rem; tracking: 0.08em; text-transform: uppercase; color: #78716c; font-weight: 700; }
         .divider { border-top: 1px solid #e7e5e4; width: 5rem; margin: 3rem auto; }
-        .transition-opacity-custom { transition: opacity 0.5s ease-in-out; }
+        .transition-opacity-custom { transition: opacity 0.4s ease-in-out; }
     </style>
 </head>
-<body class="selection:bg-amber-100 antialiased pb-32">
+<body class="selection:bg-amber-100 antialiased pb-32 bg-[#fdfcf7]">
 
-    <!-- PRIMARY CONFIGURATION WINDOW (Only element shown initially) -->
+    <!-- SELECTION PANEL -->
     <div id="setupScreen" class="max-w-md mx-auto px-6 pt-16 pb-16 transition-opacity-custom opacity-100">
         <div class="text-center mb-8">
             <p class="instruction tracking-widest text-amber-800">Dravida Sri Vaishnava Sampradaya</p>
@@ -69,8 +69,8 @@
             </button>
         </div>
     </div>
-    <!-- MAIN RITUAL VIEW (Enforced layout hidden status at boot) -->
-    <div id="ritualView" class="hidden opacity-0 transition-opacity-custom max-w-2xl mx-auto px-6">
+    <!-- MAIN RITUAL LAYOUT VIEW -->
+    <div id="ritualView" class="hidden opacity-0 transition-opacity-custom max-w-2xl mx-auto px-6 bg-[#fdfcf7]">
         <header class="text-center pt-24 pb-12">
             <p class="instruction tracking-widest text-amber-800" id="headerLineage"></p>
             <h1 class="text-4xl font-serif font-normal text-stone-900 mt-2 tracking-wide">Yajur Veda Upakarma Vidhana</h1>
@@ -114,35 +114,32 @@
             <div class="divider"></div>
 
             <section class="space-y-4">
-                <p class="instruction text-amber-800">Step IV — Nava Kāṇಡa Ṛṣi Tarpaṇam</p>
+                <p class="instruction text-amber-800">Step IV — Nava Kāṇḍa Ṛṣi Tarpaṇam</p>
                 <p class="text-sm text-stone-500 font-serif mb-4">Set thread loop over both shoulders into necklace layout (Nivēti) and offer sesame-infused water:</p>
                 <div id="tarpanamContainer" class="space-y-3 pt-2 font-serif text-stone-900 text-xl pl-2 border-l border-amber-100"></div>
             </section>
         </main>
     </div>
 
-    <!-- Script Layer References -->
+    <!-- Script Layer Injection Link -->
     <script src="data.js"></script>
     <script>
         function executeTransition() {
             const setup = document.getElementById('setupScreen');
             const ritual = document.getElementById('ritualView');
             
-            // Trigger layout calculation first
             generateRitual();
 
-            // Fade out the configuration dashboard
+            // Handle cross-fade timing sequence to protect canvas background colors
             setup.classList.add('opacity-0');
             setTimeout(() => {
                 setup.classList.add('hidden');
-                
-                // Uncover and fade up the clean sacred book layout view
                 ritual.classList.remove('hidden');
                 setTimeout(() => {
                     ritual.classList.remove('opacity-0');
                     ritual.classList.add('opacity-100');
                 }, 50);
-            }, 500);
+            }, 400);
         }
     </script>
 </body>
