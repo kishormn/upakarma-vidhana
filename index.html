@@ -10,19 +10,20 @@
         .mantra-text { font-size: 1.3rem; line-height: 1.9; color: #1c1917; font-weight: 500; }
         .instruction { font-family: system-ui, -apple-system, sans-serif; font-size: 0.8rem; tracking: 0.08em; text-transform: uppercase; color: #78716c; font-weight: 700; }
         .divider { border-top: 1px solid #e7e5e4; width: 5rem; margin: 3rem auto; }
+        .transition-opacity-custom { transition: opacity 0.5s ease-in-out; }
     </style>
 </head>
 <body class="selection:bg-amber-100 antialiased pb-32">
 
-    <!-- INITIALIZATION INPUT ENGINE WINDOW -->
-    <div id="setupScreen" class="max-w-md mx-auto px-6 pt-16 pb-16">
+    <!-- PRIMARY CONFIGURATION WINDOW (Only element shown initially) -->
+    <div id="setupScreen" class="max-w-md mx-auto px-6 pt-16 pb-16 transition-opacity-custom opacity-100">
         <div class="text-center mb-8">
             <p class="instruction tracking-widest text-amber-800">Dravida Sri Vaishnava Sampradaya</p>
             <h1 class="text-3xl font-serif text-stone-900 mt-2">Upakarma Vidhana (2026)</h1>
             <p class="text-sm italic text-stone-500 mt-1">Multi-Lingual Krama Configuration Engine</p>
         </div>
 
-        <div class="space-y-5 bg-white p-6 rounded-xl border border-stone-200 shadow-xs font-sans">
+        <div class="space-y-5 bg-white p-6 rounded-xl border border-stone-200 shadow-sm font-sans">
             <div>
                 <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">1. Mantra Language / Script</label>
                 <select id="langSelect" class="w-full border border-stone-200 rounded-lg p-3 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400 font-medium">
@@ -55,10 +56,6 @@
                     <option value="bharadvaja">Bharadvaja (ಭಾರದ್ವಾಜ)</option>
                     <option value="kashyapa">Kashyapa (ಕಶ್ಯಪ)</option>
                     <option value="vadhula">Vadhula (ವಾಧೂಲ)</option>
-                    <option value="harita">Harita (ಹರೀತ)</option>
-                    <option value="shatamarshana">Shatamarshana (ಶಠಮರ್ಷಣ)</option>
-                    <option value="kaushika">Kaushika (ಕೌಶಿಕ)</option>
-                    <option value="shandilya">Shandilya (ಶಾಂಡಿಲ್ಯ)</option>
                 </select>
             </div>
 
@@ -67,21 +64,21 @@
                 <input id="sharmaInput" type="text" placeholder="e.g. Ranganatha" class="w-full border border-stone-200 rounded-lg p-3 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
             </div>
 
-            <button onclick="generateRitual()" class="w-full mt-2 bg-amber-800 text-white py-3 rounded-lg text-sm font-semibold tracking-wide hover:bg-amber-900 transition-colors cursor-pointer">
+            <button onclick="executeTransition()" class="w-full mt-2 bg-amber-800 text-white py-3 rounded-lg text-sm font-semibold tracking-wide hover:bg-amber-900 transition-colors cursor-pointer">
                 Generate Complete Krama
             </button>
         </div>
     </div>
-    <!-- MAIN RITUAL KRAMA BLOCK CONTAINER (Hidden at initialization) -->
-    <div id="ritualView" class="hidden">
-        <header class="max-w-2xl mx-auto px-6 text-center pt-24 pb-12">
+    <!-- MAIN RITUAL VIEW (Enforced layout hidden status at boot) -->
+    <div id="ritualView" class="hidden opacity-0 transition-opacity-custom max-w-2xl mx-auto px-6">
+        <header class="text-center pt-24 pb-12">
             <p class="instruction tracking-widest text-amber-800" id="headerLineage"></p>
             <h1 class="text-4xl font-serif font-normal text-stone-900 mt-2 tracking-wide">Yajur Veda Upakarma Vidhana</h1>
             <p class="text-sm italic text-stone-500 mt-2 font-serif" id="headerDateString"></p>
             <div class="divider"></div>
         </header>
 
-        <main class="max-w-xl mx-auto px-6 space-y-16">
+        <main class="max-w-xl mx-auto space-y-16">
             <section id="dhyanaSlokaBox" class="border-b border-stone-200 pb-10">
                 <p class="instruction text-stone-500 mb-3">Acharya Dhyanam</p>
                 <p id="dhyanaText" class="mantra-text text-stone-900 text-justify leading-relaxed font-serif"></p>
@@ -117,14 +114,36 @@
             <div class="divider"></div>
 
             <section class="space-y-4">
-                <p class="instruction text-amber-800">Step IV — Nava Kāṇḍa Ṛṣi Tarpaṇam</p>
+                <p class="instruction text-amber-800">Step IV — Nava Kāṇಡa Ṛṣi Tarpaṇam</p>
                 <p class="text-sm text-stone-500 font-serif mb-4">Set thread loop over both shoulders into necklace layout (Nivēti) and offer sesame-infused water:</p>
                 <div id="tarpanamContainer" class="space-y-3 pt-2 font-serif text-stone-900 text-xl pl-2 border-l border-amber-100"></div>
             </section>
         </main>
     </div>
 
-    <!-- Link Data and Logic Engine -->
+    <!-- Script Layer References -->
     <script src="data.js"></script>
+    <script>
+        function executeTransition() {
+            const setup = document.getElementById('setupScreen');
+            const ritual = document.getElementById('ritualView');
+            
+            // Trigger layout calculation first
+            generateRitual();
+
+            // Fade out the configuration dashboard
+            setup.classList.add('opacity-0');
+            setTimeout(() => {
+                setup.classList.add('hidden');
+                
+                // Uncover and fade up the clean sacred book layout view
+                ritual.classList.remove('hidden');
+                setTimeout(() => {
+                    ritual.classList.remove('opacity-0');
+                    ritual.classList.add('opacity-100');
+                }, 50);
+            }, 500);
+        }
+    </script>
 </body>
 </html>
