@@ -3,161 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yajur Veda Upakarma Vidhana Guide</title>
+    <title>Yajur Veda Upakarma & Gayatri Japa Vidhana</title>
     <script src="https://jsdelivr.net"></script>
     <style>
-        .mantra { font-family: 'Georgia', serif; font-size: 1.15rem; line-height: 1.75; }
+        .mantra { font-family: 'Georgia', 'Cambria', serif; font-size: 1.2rem; line-height: 1.8; letter-spacing: 0.02em; }
+        .temple-gradient { background: linear-gradient(135deg, #7c1a22 0%, #4a0d12 100%); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased font-sans pb-16">
+<body class="bg-amber-50/40 text-slate-800 antialiased font-sans pb-20">
 
-    <!-- Header Section -->
-    <header class="bg-amber-700 text-white shadow-md py-6 px-4 mb-6 sticky top-0 z-50">
-        <div class="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <h1 class="text-xl font-bold tracking-wide text-center sm:text-left">🌅 Yajur Veda Upakarma Vidhana</h1>
-            <span class="bg-amber-800 text-amber-200 text-xs px-3 py-1 rounded-full font-semibold">Iyengar Sampradaya</span>
+    <!-- Header Panel -->
+    <header class="temple-gradient text-amber-100 shadow-xl border-b-4 border-amber-500 py-8 px-4 mb-8">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="text-xs uppercase tracking-widest bg-amber-500/20 text-amber-300 px-3 py-1 rounded-full font-bold border border-amber-500/30">Sri Vaishnava Sampradaya</span>
+            <h1 class="text-3xl font-extrabold tracking-tight text-white mt-3 drop-shadow-xs">🌅 Yajur Veda Upakarma Vidhana</h1>
+            <p class="text-amber-200/80 text-sm mt-1 font-serif">An Interactive Ritual Companion for Iyengars</p>
         </div>
     </header>
 
     <main class="max-w-3xl mx-auto px-4">
         
-        <!-- Step 0: User Customization Panel -->
-        <section class="bg-white p-6 rounded-xl shadow-xs border border-slate-200 mb-6">
-            <h2 class="text-lg font-bold text-amber-800 mb-4 border-b border-amber-100 pb-2">⚙️ Step 0: Personalize Your Ritual</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Gotra Selector -->
+        <!-- Tab Switches -->
+        <div class="flex bg-white rounded-xl shadow-xs p-1.5 border border-amber-200/60 mb-6">
+            <button id="tabDay1" onclick="switchTab('day1')" class="w-1/2 text-center py-3 rounded-lg font-bold text-sm transition-all duration-200 cursor-pointer bg-amber-700 text-white shadow-xs">
+                🗓️ Day 1: Upakarma Vidhana
+            </button>
+            <button id="tabDay2" onclick="switchTab('day2')" class="w-1/2 text-center py-3 rounded-lg font-bold text-sm transition-all duration-200 cursor-pointer text-slate-600 hover:text-amber-800 hover:bg-amber-50/50">
+                📿 Day 2: Gayatri Maha Japa
+            </button>
+        </div>
+
+        <!-- Custom Variable Selection Board -->
+        <section class="bg-white p-6 rounded-2xl shadow-xs border border-amber-200/50 mb-8 backdrop-blur-xs">
+            <h2 class="text-base font-bold text-amber-900 mb-4 flex items-center gap-2 border-b border-amber-100 pb-3">
+                <span class="text-xl">⚙️</span> Personalize Ritual Text
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                    <label class="block text-sm font-semibold text-slate-600 mb-2">1. Select Your Gotra</label>
-                    <select id="gotraSelect" class="w-full border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none" onchange="updateCustomValues()">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">1. Choose Gotra</label>
+                    <select id="gotraSelect" class="w-full border border-slate-200 rounded-xl p-3 bg-slate-50/50 text-sm focus:ring-2 focus:ring-amber-600 focus:bg-white outline-none font-medium text-slate-700 transition-all" onchange="updateCustomText()">
                         <option value="srivatsa">Srivatsa (श्रीवत्स)</option>
                         <option value="bharadvaja">Bharadvaja (भारद्वाज)</option>
                         <option value="kashyapa">Kashyapa (कश्यप)</option>
                         <option value="vadhula">Vadhula (वाधूल)</option>
+                        <option value="harita">Harita (हारीत)</option>
+                        <option value="shatamarshana">Shatamarshana (शठमर्षण)</option>
+                        <option value="kaushika">Kaushika (कौश्यक)</option>
+                        <option value="shandilya">Shandilya (शाण्डिल्य)</option>
+                        <option value="naidhruva">Naidhruva (नैध्रुव)</option>
+                        <option value="atreya">Atreya (आत्रेय)</option>
+                        <option value="kaundinya">Kaundinya (कौण्डिन्य)</option>
+                        <option value="gautama">Gautama (गौतम)</option>
+                        <option value="mudgala">Mudgala (मुद्गल)</option>
+                        <option value="garga">Garga (गर्ग)</option>
                     </select>
                 </div>
-
-                <!-- Track Selector -->
                 <div>
-                    <label class="block text-sm font-semibold text-slate-600 mb-2">2. Choose Your Ritual Path</label>
-                    <select id="trackSelect" class="w-full border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none" onchange="toggleBrahmaYajna()">
-                        <option value="full">Full Ritual (With Brahma Yajna)</option>
-                        <option value="short">Short Ritual (Skip Brahma Yajna)</option>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">2. Your Name (Sharma)</label>
+                    <input id="sharmaInput" type="text" placeholder="e.g. Ranganatha" class="w-full border border-slate-200 rounded-xl p-3 bg-slate-50/50 text-sm focus:ring-2 focus:ring-amber-600 focus:bg-white outline-none font-medium text-slate-700 transition-all" oninput="updateCustomText()">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">3. Ritual Path</label>
+                    <select id="trackSelect" class="w-full border border-slate-200 rounded-xl p-3 bg-slate-50/50 text-sm focus:ring-2 focus:ring-amber-600 focus:bg-white outline-none font-medium text-slate-700 transition-all" onchange="toggleBrahmaYajna()">
+                        <option value="full">Full Ritual (Brahma Yajna Included)</option>
+                        <option value="short">Short Ritual (Skip to Tarpanam)</option>
                     </select>
                 </div>
-            </div>
-
-            <!-- Dynamic Preview Box -->
-            <div class="mt-4 p-3 bg-amber-50/50 rounded-lg border border-amber-200/60 text-xs text-amber-900">
-                <strong>Current Config:</strong> <span id="configPreview">Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah</span>
             </div>
         </section>
 
-        <!-- Step 1: Satvika Tyagam Notice -->
-        <section class="bg-amber-50 border-l-4 border-amber-600 p-4 rounded-r-xl mb-6">
-            <h3 class="font-bold text-amber-900 text-sm">💡 Iyengar Nitya Rule: Sātvika Tyāgam</h3>
-            <p class="text-xs text-amber-800 mt-1 leading-relaxed">
-                Perform this surrender prayer <strong>before</strong> and <strong>after</strong> every main step: <br>
-                <span class="italic font-serif block mt-1 text-slate-700">"Bhagavānēva svaniyāmya svarūpa sthiti pravritti svashēshatā lēna..."</span>
+        <!-- Satvika Tyagam Anchor Element -->
+        <section class="bg-amber-50/80 border-l-4 border-amber-700 p-4 rounded-r-2xl mb-8 shadow-2xs">
+            <h3 class="font-bold text-amber-950 text-xs uppercase tracking-wider flex items-center gap-1.5">💡 Iyengar Anchor Rule: Sātvika Tyāgam</h3>
+            <p class="text-sm text-amber-900 mt-1 font-serif italic leading-relaxed">
+                "Bhagavānēva svaniyāmya svarūpa sthiti pravritti svashēshatā lēna svīyairatya kalyāṇa guṇagaṇaih... bhagavat-karmatām prapādayati."
             </p>
         </section>
 
-        <!-- Ritual Steps Container -->
-        <div class="space-y-6">
-            
-            <!-- Step 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Step 1</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-1">Kāmokārshīt Japam</h3>
-                <p class="text-sm text-slate-500 mb-4">Chant this expiatory mantra 108 times using visual count lines or a Japa mala.</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-800 italic">
+        <!-- DAY 1 CONTAINER BLOCK -->
+        <div id="viewDay1" class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Step 1</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Kāmokārshīt Japam</h3>
+                <p class="text-sm text-slate-500 mb-4">Chant this expiatory prayer 108 times to cleanse past lapses.</p>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mantra text-slate-900 font-medium italic text-center border-l-4 border-slate-400">
                     "Kāmokārshīt manyurakārshīt namō namah"
                 </div>
             </div>
 
-            <!-- Step 2: Brahma Yajna (Conditional Section) -->
-            <div id="brahmaYajnaSection" class="bg-white p-6 rounded-xl shadow-xs border border-slate-200 transition-all duration-300">
-                <span class="text-xs font-bold text-amber-600 tracking-wider uppercase">Step 2 (Track A)</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-1">Brahma Yajna</h3>
-                <p class="text-sm text-slate-500 mb-4">Sit facing East. Offer respects to the Devas, Rishis, and Pitrus.</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-800 mb-2">
-                    "Harih Ōm. Agnimmīḷē purōhitam yajñasya dēvamṛtvijam..."
+            <div id="brahmaYajnaSection" class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100 transition-all duration-300">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Step 2 (Track A)</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Brahma Yajna</h3>
+                <p class="text-sm text-slate-500 mb-4">Face East. Pay systemic respects to Devas, Rishis, and Ancestors.</p>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mantra text-slate-800 border-l-4 border-amber-600 mb-3">
+                    "Harih Ōm. Agnimmīḷē purōhitam yajñasya dēvamṛtvijam hotāram ratnad hātamam..."
                 </div>
-                <p class="text-xs text-amber-700 font-semibold mt-2">⚠️ Remember to alter hand positions for Deva, Rishi, and Pitru Tarpanams.</p>
             </div>
 
-            <!-- Step 3: Mahasankalpam -->
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Step 3</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-1">Mahāsankalpam</h3>
-                <p class="text-sm text-slate-500 mb-4">Hold Akshata, flowers, and water in your right palm. Read the customized text below.</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-800">
+            <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Step 3</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Mahāsankalpam</h3>
+                <p class="text-sm text-slate-500 mb-4">Hold offering items in your right hand. Read the custom compiled statement:</p>
+                <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-100 mantra text-slate-950 font-serif leading-relaxed text-justify">
                     "Harih Ōm Tatsat... Shvētavarāha kalpē... samvatsarē, Uttarāyanē, Varsha ṛtau, Shrāvaṇa māsē, Shuklapakṣē, Pūrṇimāyām tithau, Shrāvaṇa nakṣatra yuktāyām...
                     <br><br>
-                    <span id="dynamicPravara" class="bg-amber-100 px-1 py-0.5 rounded font-bold text-amber-900">Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah</span> 
-                    <span class="border-b border-dashed border-slate-400 px-2 italic text-slate-400">[Your_Name]</span> sharmā aham...
+                    <span id="dynamicPravara1" class="bg-amber-100/80 font-bold text-amber-950 px-1 py-0.5 rounded border border-amber-200">Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah</span> 
+                    <span id="dynamicName1" class="border-b-2 border-dashed border-amber-700 px-2 font-bold text-amber-900">[Your Name]</span> sharmā aham...
                     <br><br>
                     ...shrauta smārta vihita nitya karma anuṣṭhāna yōgyatā siddhyartham, nūtana yajñōpavīta dhāraṇam kariṣyē."
                 </div>
             </div>
 
-            <!-- Step 4: Yajnopavita Dharanam -->
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Step 4</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-1">Yajnopavīta Dhāraṇam</h3>
-                <p class="text-sm text-slate-500 mb-4">Wear the new thread while reciting the consecration mantra.</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-800 mb-4">
+            <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Step 4</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Yajnopavīta Dhāraṇam</h3>
+                <p class="text-sm text-slate-500 mb-3">Don the fresh thread loop while reciting:</p>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mantra text-slate-900 font-medium mb-5 border-l-4 border-emerald-600">
                     "Yajñōpavītam paramam pavitram prajāpatēryatsahajam purastāt | Āyuṣyamagriyam pratimuñca shubhram jyōtiṣmatpamañca bālamastu ||"
                 </div>
-                <p class="text-sm text-slate-500 mb-2">Remove and discard the old thread with this mantra:</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-600 italic">
-                    "Upavītam bhinnatantu jīrṇam kaṣmāladūṣitam | Visṛjāmi yashōbāladīrghāyurastu mē ||"
-                </div>
             </div>
 
-            <!-- Step 5: Rishi Tarpanam -->
-            <div class="bg-white p-6 rounded-xl shadow-xs border border-slate-200">
-                <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Step 5</span>
-                <h3 class="text-lg font-bold text-slate-900 mt-1">Kāṇḍa Ṛṣi Tarpaṇam</h3>
-                <p class="text-sm text-slate-500 mb-4">Position thread like a necklace (Nivēti). Pour water mixed with Akshata/sesame seeds.</p>
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mantra text-slate-800 space-y-2">
-                    <p>1. "Prājāpatyam kāṇḍarṣim tarpaṇāmi"</p>
-                    <p>2. "Sōmam kāṇḍarṣim tarpaṇāmi"</p>
-                    <p>3. "Agnim kāṇḍarṣim tarpaṇāmi"</p>
-                    <p>4. "Vishvān dēvān kāṇḍarṣīn tarpaṇāmi"</p>
+            <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Step 5</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Kāṇḍa Ṛṣi Tarpaṇam</h3>
+                <p class="text-sm text-slate-500 mb-4">Set thread loop into necklace position (Nivēti) and pour clean water mix:</p>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 mantra text-slate-800 space-y-3 font-medium">
+                    <p>💧 "Prājāpatyam kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>💧 "Sōmam kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>💧 "Agnim kāṇḍarṣim tarpaṇāmi"</p>
+                    <p>💧 "Vishvān dēvān kāṇḍarṣīn tarpaṇāmi"</p>
                 </div>
             </div>
+        </div>
 
+        <!-- DAY 2 CONTENT SECTION -->
+        <div id="viewDay2" class="hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-xs border border-slate-100">
+                <span class="text-xs font-extrabold text-amber-700 uppercase tracking-widest bg-amber-50 px-2.5 py-1 rounded-md">Day 2 Morning</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-3">Gayatri Maha Japa Sankalpam</h3>
+                <p class="text-sm text-slate-500 mb-4">Concentrated chanting of the Gayatri mantra 1008 times.</p>
+                <div class="bg-amber-50/30 p-5 rounded-xl border border-amber-100 mantra text-slate-950 font-serif leading-relaxed text-justify">
+                    "Harih Ōm Tatsat... Shvētavarāha kalpē... samvatsarē, Uttarāyanē, Varsha ṛtau, Shrāvaṇa māsē, Krishna/Shukla pakṣē...
+                    <br><br>
+                    <span id="dynamicPravara2" class="bg-amber-100/80 font-bold text-amber-950 px-1 py-0.5 rounded border border-amber-200">Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah</span> 
+                    <span id="dynamicName2" class="border-b-2 border-dashed border-amber-700 px-2 font-bold text-amber-900">[Your Name]</span> sharmā aham...
+                    <br><br>
+                    ...chhandasām mātaram gāyatrīm āvāhayiṣyē... pāpanāśārtham aṣṭōttara sahasra (1008) saṅkhyayā gāyatrī mahā-mantra japam kariṣyē."
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- Simple Dynamic Script Logic -->
-    <script>
-        const gotraData = {
-            srivatsa: "Bhārgava, Cyāvana, Āpnavāna, Aurva, Jāmadagnya pañcārṣeya prāvarānvita Śrīvatsa gōtrōtpannah",
-            bharadvaja: "Āṅgirasa, Bārhaspatya, Bhāradvāja trayārṣeya prāvarānvita Bhāradvāja gōtrōtpannah",
-            kashyapa: "Kāśyapa, Āvatsāra, Naidhruva trayārṣeya prāvarānvita Kāśyapa gōtrōtpannah",
-            vadhula: "Bhārgava, Vaitahavya, Sāvedasa trayārṣeya prāvarānvita Vādhūla gōtrōtpannah"
-        };
-
-        function updateCustomValues() {
-            const selectedGotra = document.getElementById('gotraSelect').value;
-            const textString = gotraData[selectedGotra];
-            
-            document.getElementById('configPreview').innerText = textString;
-            document.getElementById('dynamicPravara').innerText = textString;
-        }
-
-        function toggleBrahmaYajna() {
-            const track = document.getElementById('trackSelect').value;
-            const section = document.getElementById('brahmaYajnaSection');
-            
-            if(track === 'short') {
-                section.classList.add('opacity-40', 'pointer-events-none bg-slate-100');
-            } else {
-                section.classList.remove('opacity-40', 'pointer-events-none bg-slate-100');
-            }
-        }
-    </script>
+    <!-- Connect Application Scripts -->
+    <script src="data.js"></script>
 </body>
 </html>
