@@ -6,129 +6,83 @@
     <title>Yajur Veda Upakarma Vidhana 2026</title>
     <script src="https://tailwindcss.com"></script>
     <style>
-        body { font-family: 'Georgia', 'Cambria', serif; background-color: #fdfcf7 !important; color: #292524; }
-        .mantra-text { font-size: 1.3rem; line-height: 1.9; color: #1c1917; font-weight: 500; }
-        .instruction { font-family: system-ui, -apple-system, sans-serif; font-size: 0.8rem; tracking: 0.08em; text-transform: uppercase; color: #78716c; font-weight: 700; }
-        .divider { border-top: 1px solid #e7e5e4; width: 5rem; margin: 3rem auto; }
-        .transition-opacity-custom { transition: opacity 0.4s ease-in-out; }
+        body { background-color: #eae6df; }
+        .transition-opacity-custom { transition: opacity 0.35s ease-in-out; }
     </style>
 </head>
-<body class="selection:bg-amber-100 antialiased pb-32 bg-[#fdfcf7]">
+<body class="antialiased py-12 px-4 selection:bg-amber-100">
 
-    <!-- INPUT CONFIGURATION BOARD -->
-    <div id="setupScreen" class="max-w-md mx-auto px-6 pt-12 pb-16 transition-opacity-custom opacity-100 font-sans">
-        <div class="text-center mb-8">
-            <p class="instruction tracking-widest text-amber-800 font-serif">Dravida Sri Vaishnava Sampradaya</p>
-            <h1 class="text-3xl font-serif text-stone-900 mt-2">Upakarma Vidhana (2026)</h1>
-            <p class="text-sm italic text-stone-500 mt-1 font-serif">Dynamic Geospatial Krama Companion</p>
+    <!-- CONFIGURATION DASHBOARD LAYOUT -->
+    <div id="setupScreen" class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl border border-stone-200 overflow-hidden transition-opacity-custom opacity-100">
+        <div class="bg-gradient-to-r from-amber-800 to-stone-800 p-6 text-center text-amber-100 border-b-4 border-amber-600">
+            <p class="text-xs uppercase tracking-widest font-sans font-bold text-amber-400">Dravida Sri Vaishnava Sampradaya</p>
+            <h1 class="text-2xl font-serif text-white mt-1">Upakarma Krama Generator</h1>
+            <p class="text-xs italic text-amber-200/70 mt-0.5">Configure ritual configuration for the year 2026</p>
         </div>
 
-        <div class="space-y-4 bg-white p-6 rounded-xl border border-stone-200 shadow-xs">
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">1. Mantra Script / Language</label>
-                <select id="langSelect" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400 font-medium">
-                    <option value="kannada">ಕನ್ನಡ (Kannada Unicode)</option>
-                    <option value="english">English (Roman Transliteration)</option>
-                    <option value="sanskrit">संस्कृतम् (Devanagari Unicode)</option>
-                </select>
+        <div class="p-6 space-y-4 font-sans">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Mantra Script</label>
+                    <select id="langSelect" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 font-medium text-stone-800">
+                        <option value="kannada">ಕನ್ನಡ (Kannada Script)</option>
+                        <option value="english">English (Roman Translit.)</option>
+                        <option value="sanskrit">संस्कृतम् (Devanagari Script)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Current Location</label>
+                    <select id="locationSelect" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 text-stone-800">
+                        <option value="south">Bengaluru / Chennai / Mysuru (Dakṣiṇē)</option>
+                        <option value="north">New Delhi / Mumbai / Kolkata (Uttarē)</option>
+                        <option value="west">USA / Europe / Global West (Paścimē)</option>
+                    </select>
+                </div>
             </div>
 
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">2. Current Location Axis</label>
-                <select id="locationSelect" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
-                    <option value="south">Bengaluru / Chennai / Mysuru / South India (Dakṣiṇē)</option>
-                    <option value="north">New Delhi / Mumbai / Kolkata / North India (Uttarē)</option>
-                    <option value="west">USA / Europe / Global West (Paścimē Hemisphere)</option>
-                </select>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Sampradaya Lineage</label>
+                    <select id="sectSelect" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 text-stone-800">
+                        <option value="vadakalai">Vadakalai (Sriman Narayana Prityartham)</option>
+                        <option value="thenkalai">Thenkalai (Bhagavat Kainkarya Rupam)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Calendar Tradition</label>
+                    <select id="dateSelect" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 text-stone-800">
+                        <option value="tn">Tamil Nadu Rule — Aug 27, 2026</option>
+                        <option value="ka">KA / AP Desha Rule — Sep 25, 2026</option>
+                    </select>
+                </div>
             </div>
 
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">3. Sampradaya Lineage Line</label>
-                <select id="sectSelect" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
-                    <option value="vadakalai">Vadakalai (Sriman Narayana Prityartham)</option>
-                    <option value="thenkalai">Thenkalai (Bhagavat Kainkarya Rupam)</option>
-                </select>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Your Gotra</label>
+                    <select id="gotraSelect" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 text-stone-800">
+                        <option value="srivatsa">Srivatsa (ಶ್ರೀವತ್ಸ)</option>
+                        <option value="bharadvaja">Bharadvaja (ಭಾರದ್ವಾಜ)</option>
+                        <option value="kashyapa">Kashyapa (ಕಶ್ಯಪ)</option>
+                        <option value="vadhula">Vadhula (ವಾಧೂಲ)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1">Your Name (Sharma)</label>
+                    <input id="sharmaInput" type="text" placeholder="e.g. Anantha" class="w-full border border-stone-200 rounded-xl p-2.5 bg-stone-50 text-sm outline-none focus:ring-2 focus:ring-amber-600/20 focus:border-amber-700 text-stone-800">
+                </div>
             </div>
 
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">4. Calendar Custom</label>
-                <select id="dateSelect" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
-                    <option value="tn">Tamil Nadu Rule — August 27, 2026 (Simha Māse)</option>
-                    <option value="ka">KA / AP Desha Rule — September 25, 2026 (Kanyā Māse)</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">5. Your Gotra</label>
-                <select id="gotraSelect" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
-                    <option value="srivatsa">Srivatsa (ಶ್ರೀವತ್ಸ)</option>
-                    <option value="bharadvaja">Bharadvaja (ಭಾರದ್ವಾಜ)</option>
-                    <option value="kashyapa">Kashyapa (ಕಶ್ಯಪ)</option>
-                    <option value="vadhula">Vadhula (ವಾಧೂಲ)</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-1.5">6. Your Name (Sharma)</label>
-                <input id="sharmaInput" type="text" placeholder="e.g. Ranganatha" class="w-full border border-stone-200 rounded-lg p-2.5 bg-stone-50 text-sm outline-none focus:ring-1 focus:ring-stone-400">
-            </div>
-
-            <button onclick="executeTransition()" class="w-full mt-2 bg-amber-800 text-white py-3 rounded-lg text-sm font-semibold tracking-wide hover:bg-amber-900 transition-colors cursor-pointer">
+            <button onclick="executeTransition()" class="w-full mt-4 bg-amber-800 hover:bg-amber-900 text-white py-3 rounded-xl text-sm font-semibold tracking-wide shadow-md transition-all cursor-pointer">
                 Generate Complete Krama
             </button>
         </div>
     </div>
-    <!-- MAIN RITUAL LAYOUT BOOK COMPONENT -->
-    <div id="ritualView" class="hidden opacity-0 transition-opacity-custom max-w-2xl mx-auto px-6 bg-[#fdfcf7]">
-        <header class="text-center pt-24 pb-12">
-            <p class="instruction tracking-widest text-amber-800" id="headerLineage"></p>
-            <h1 class="text-4xl font-serif font-normal text-stone-900 mt-2 tracking-wide">Yajur Veda Upakarma Vidhana</h1>
-            <p class="text-sm italic text-stone-500 mt-2 font-serif" id="headerDateString"></p>
-            <div class="divider"></div>
-        </header>
-
-        <main class="max-w-xl mx-auto space-y-16">
-            <section id="dhyanaSlokaBox" class="border-b border-stone-200 pb-10">
-                <p class="instruction text-stone-500 mb-3">Acharya Dhyanam</p>
-                <p id="dhyanaText" class="mantra-text text-stone-900 text-justify leading-relaxed font-serif"></p>
-            </section>
-
-            <section class="space-y-4">
-                <p class="instruction text-amber-800">Master Upākarma Saṅkalpam</p>
-                <p class="text-sm text-stone-500 leading-relaxed font-serif">Sit facing East, place darbha grass strands across your lap, and layer your palms to declare your intent:</p>
-                <p id="sankalpamText" class="mantra-text leading-relaxed text-justify text-stone-900 font-serif"></p>
-            </section>
-
-            <div class="divider"></div>
-
-            <section class="space-y-4">
-                <p class="instruction text-amber-800">Step I — Kāmokārshīt Japam</p>
-                <p id="kamokarshitText" class="mantra-text text-center py-4 font-serif text-stone-900"></p>
-            </section>
-
-            <div class="divider"></div>
-
-            <section class="space-y-4">
-                <p class="instruction text-amber-800">Step II — Brahma Yajna</p>
-                <p id="brahmaYajnaText" class="mantra-text leading-relaxed text-justify text-stone-900 font-serif"></p>
-            </section>
-
-            <div class="divider"></div>
-
-            <section class="space-y-4">
-                <p class="instruction text-amber-800">Step III — Yajnopavīta Dhāraṇam</p>
-                <p id="yajnopavitaText" class="mantra-text leading-relaxed text-center text-stone-900 font-serif"></p>
-            </section>
-
-            <div class="divider"></div>
-
-            <section class="space-y-4">
-                <p class="instruction text-amber-800">Step IV — Nava Kāṇḍa Ṛṣi Tarpaṇam</p>
-                <p class="text-sm text-stone-500 font-serif mb-4">Set thread loop over both shoulders into necklace layout (Nivēti) and offer sesame-infused water:</p>
-                <div id="tarpanamContainer" class="space-y-3 pt-2 font-serif text-stone-900 text-xl pl-2 border-l border-amber-100"></div>
-            </section>
-        </main>
-    </div>
+        <!-- CONTAINER RENDER WINDOW -->
+    <div id="ritualView" class="hidden opacity-0 transition-opacity-custom px-2"></div>
 
     <!-- Script Layer Injection Link -->
     <script src="data.js"></script>
@@ -137,9 +91,18 @@
             const setup = document.getElementById('setupScreen');
             const ritual = document.getElementById('ritualView');
             
-            generateRitual();
+            const lang = document.getElementById('langSelect').value;
+            const sect = document.getElementById('sectSelect').value;
+            const regionDate = document.getElementById('dateSelect').value;
+            const selectedGotra = document.getElementById('gotraSelect').value;
+            const location = document.getElementById('locationSelect').value;
+            const name = document.getElementById('sharmaInput').value.trim();
 
-            // Run structural opacity state transition
+            // Fire markup compilation engine
+            const generatedHtml = generateRitualMarkup(lang, sect, regionDate, selectedGotra, location, name);
+            ritual.innerHTML = generatedHtml;
+
+            // Execute polished cross-fade transition choreography
             setup.classList.add('opacity-0');
             setTimeout(() => {
                 setup.classList.add('hidden');
@@ -148,7 +111,7 @@
                     ritual.classList.remove('opacity-0');
                     ritual.classList.add('opacity-100');
                 }, 50);
-            }, 400);
+            }, 350);
         }
     </script>
 </body>
